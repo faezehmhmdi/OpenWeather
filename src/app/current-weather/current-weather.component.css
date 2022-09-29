@@ -1,0 +1,12 @@
+
+.p-card-header {
+  background-color: #D8DBE2;
+  border-radius: 15px;
+}
+
+
+.p-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,17 @@
+<p-card class="flex" *ngIf="currentWeatherResult">
+  <div class="p-card-header flex justify-content-center align-items-center">
+    <h2 class="m-3" style="color: #58a4b0;">{{this.currentWeatherResult['name']}}</h2>
+    <h4 class="m-3" style="color: #DAA49A;">{{today | date:'medium'}}</h4>
+  </div>
+  <div class="p-card-body flex justify-content-between align-items-center">
+    <div class="m-2 flex-column justify-content-evenly">
+      <p>Weather: {{this.currentWeatherResult['weather'][0].main}}</p>
+      <p>[{{this.currentWeatherResult['weather'][0].description}}]</p>
+      <p>Temp:  {{this.currentWeatherResult['main'].temp}}</p>
+      <p>Feels like:  {{this.currentWeatherResult['main'].feels_like}}</p>
+    </div>
+    <img class="m-2" width="100px" height="100px" alt="Weather Icon" [src]="weatherIconUrl">
+  </div>
+</p-card>
+
+<p-toast position="top-center"></p-toast>
