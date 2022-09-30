@@ -24,8 +24,16 @@ export class WeatherService {
     return this.http.get(environment.openWeather + '/weather?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + API_Key)
   }
 
+  getCurrentWeatherByCityName(cityName: string) {
+    return this.http.get(environment.openWeather + '/' + cityName)
+  }
+
   getForecast(lat: string, lon: string) {
-    return this.http.get(environment.openWeather + '/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + API_Key)
+    return this.http.get<any>(environment.openWeather + '/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + API_Key)
+  }
+
+  getPollution(lat: string, lon: string) {
+    return this.http.get(environment.openWeather + '/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=' + API_Key)
   }
 
 

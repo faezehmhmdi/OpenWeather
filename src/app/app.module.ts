@@ -9,6 +9,11 @@ import {CardModule} from "primeng/card";
 import {ToastModule} from "primeng/toast";
 import {ForecastComponent} from './forecast/forecast.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
+import {ScrollingModule} from "@angular/cdk/scrolling";
+import {DropdownModule} from "primeng/dropdown";
+import {DividerModule} from "primeng/divider";
+import {TableModule} from "primeng/table";
 
 
 @NgModule({
@@ -18,6 +23,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ForecastComponent,
   ],
   imports: [
+    FormsModule,
+    ScrollingModule,
+    DropdownModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -25,7 +33,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ToastModule,
     BrowserModule,
     BrowserAnimationsModule,
-
+    DividerModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

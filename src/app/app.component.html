@@ -5,20 +5,26 @@
     src="assets/icons/app-logo.png"/>
   <span>Weather App</span>
   <div class="spacer"></div>
+  <h4 class="m-3">{{today | date: 'short'}}</h4>
 </div>
 
 <div class="content" role="main">
-
-<!--  <p-dropdown [options]="listOfCities" [virtualScroll]="true" [virtualScrollItemSize]="30"></p-dropdown>-->
+  <div class="w-full text-center" style="margin-bottom: 1%">
+    <p-dropdown [options]="listOfCities" [virtualScroll]="true" [filter]="true"
+                optionLabel="city" placeholder="Select the city"
+                [style]="{ width: '100%' }"
+                (onChange)="onCityChange($event)"></p-dropdown>
+  </div>
 
   <!-- Current Weather Card -->
   <app-current-weather *ngIf="this.lat && this.lon" [lat]="lat" [lon]="lon"></app-current-weather>
+<!--  <app-forecast *ngIf="this.lat && this.lon" [lat]="lat" [lon]="lon"></app-forecast>-->
 
 
   <!-- Footer -->
   <footer>
     Made by Faezeh Mohammadi,
-    <a href="https://github.com/faezehmhmdi/OpenWeather" target="_blank" rel="noopener">  Check my repo.
+    <a href="https://github.com/faezehmhmdi/OpenWeather" target="_blank" rel="noopener"> Check my repo.
       <div class="github-star-badge">
         <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path d="M0 0h24v24H0z" fill="none"/>

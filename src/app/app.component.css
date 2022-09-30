@@ -139,6 +139,12 @@ svg#clouds {
   width: 1920px;
 }
 
+.ui-dropdown    {
+  width:100% !important;
+}
 
 
+app-current-weather {
+  width: 100% !important;
+}
 

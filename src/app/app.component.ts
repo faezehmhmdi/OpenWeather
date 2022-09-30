@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "./openWeatherService";
-import {MessageService, SelectItem} from "primeng/api";
-import {Position} from "@angular/compiler";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-root',
@@ -19,12 +18,19 @@ export class AppComponent {
   title = 'open-weather';
   lat: any;
   lon: any;
+  today = Date.now();
+
 
   ngOnInit(): void {
+    this.getLocation();
+    this.getCities()
+  }
+
+
+  getCities() {
     this.weatherService.getListOfCities().pipe().subscribe(res => {
       this.listOfCities = res;
     })
-    this.getLocation();
   }
 
   getLocation() {
@@ -48,4 +54,10 @@ export class AppComponent {
       })
     }
   }
+
+  onCityChange(event: any) {
+    this.lat = event.value.lat
+    this.lon = event.value.lng
+  }
+
 }

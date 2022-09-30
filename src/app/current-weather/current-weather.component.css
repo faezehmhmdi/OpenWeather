@@ -1,7 +1,10 @@
 
 .p-card-header {
-  background-color: #D8DBE2;
+  background-color: #dcd6f7;
   border-radius: 15px;
+  text-align: center;
+  padding: 0.01%;
+  border: 1px solid #FFFFFF;
 }
 
 
@@ -9,4 +12,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+::ng-deep .p-card {
+  margin-bottom: 3px;
+  background-color: rgba(246, 232, 234, 0.8);
 }

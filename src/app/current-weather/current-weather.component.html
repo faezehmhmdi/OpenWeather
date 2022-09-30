@@ -1,17 +1,43 @@
-<p-card class="flex" *ngIf="currentWeatherResult">
-  <div class="p-card-header flex justify-content-center align-items-center">
-    <h2 class="m-3" style="color: #58a4b0;">{{this.currentWeatherResult['name']}}</h2>
-    <h4 class="m-3" style="color: #DAA49A;">{{today | date:'medium'}}</h4>
+<p-card class="w-full" *ngIf="currentWeatherResult">
+  <div class="p-card-header justify-content-between align-items-center">
+    <h2 style="color: #373F51;">{{this.currentWeatherResult['name']}}</h2>
   </div>
-  <div class="p-card-body flex justify-content-between align-items-center">
-    <div class="m-2 flex-column justify-content-evenly">
-      <p>Weather: {{this.currentWeatherResult['weather'][0].main}}</p>
-      <p>[{{this.currentWeatherResult['weather'][0].description}}]</p>
-      <p>Temp:  {{this.currentWeatherResult['main'].temp}}</p>
-      <p>Feels like:  {{this.currentWeatherResult['main'].feels_like}}</p>
+  <div class="w-full p-card-body flex-column justify-content-between align-items-center">
+    <div class="w-full lg:flex sm:flex-wrap justify-content-between align-items-center text-center">
+      <p class="font-bold">Weather: {{this.currentWeatherResult['weather'][0].main}}</p>
+      <p class="font-bold">Description: {{this.currentWeatherResult['weather'][0].description}}</p>
+      <p class="font-bold">Temp:  {{this.currentWeatherResult['main'].temp}} °C</p>
+      <p class="font-bold">Feels like:  {{this.currentWeatherResult['main'].feels_like}} °C</p>
     </div>
-    <img class="m-2" width="100px" height="100px" alt="Weather Icon" [src]="weatherIconUrl">
+    <img alt="Weather Icon" [src]="weatherIconUrl">
   </div>
 </p-card>
+<p-card class="w-full" *ngIf="airPollutionResult">
+  <div class="p-card-header text-center justify-content-between align-items-center">
+    <h2 style="color: #373F51;">Air Pollution</h2>
+  </div>
+  <div class="p-card-body w-full flex justify-content-between align-items-center text-center">
+    <p class="font-bold">Quality: {{this.airQualityLabel}}</p>
+    <p class="font-bold">CO: {{this.airPollutionResult['list'][0]['components'].co}}</p>
+    <p class="font-bold">NO: {{this.airPollutionResult['list'][0]['components'].no}}</p>
+    <p class="font-bold">O3: {{this.airPollutionResult['list'][0]['components'].o3}}</p>
+  </div>
+</p-card>
+<p-card class="w-full" *ngIf="forecastResult">
+  <div class="p-card-header text-center justify-content-between align-items-center">
+    <h2 style="color: #373F51;">Forecast</h2>
+  </div>
+  <div class="w-full p-card-body ">
+    <div class="w-full lg:flex sm:flex-wrap justify-content-between align-items-center text-center">
+      <div *ngFor="let w of this.forecastResult; let index">
+        <p class="font-bold">{{w.dt_txt | date: 'mediumDate'}}</p>
+        <p>{{w.main.temp}} °C {{w.weather[0].main}}</p>
+        <img alt="Weather Icon" [src]="'http://openweathermap.org/img/wn/' + w.weather[0].icon + '@2x.png'">
+      </div>
+
+    </div>
+  </div>
+</p-card>
+
 
 <p-toast position="top-center"></p-toast>
