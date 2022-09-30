@@ -16,10 +16,8 @@
                 (onChange)="onCityChange($event)"></p-dropdown>
   </div>
 
-  <!-- Current Weather Card -->
+  <!-- Weather Card -->
   <app-current-weather *ngIf="this.lat && this.lon" [lat]="lat" [lon]="lon"></app-current-weather>
-<!--  <app-forecast *ngIf="this.lat && this.lon" [lat]="lat" [lon]="lon"></app-forecast>-->
-
 
   <!-- Footer -->
   <footer>
@@ -49,6 +47,5 @@
   </svg>
 
 </div>
-
 
 <router-outlet></router-outlet>

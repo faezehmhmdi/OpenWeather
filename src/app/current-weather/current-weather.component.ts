@@ -17,15 +17,18 @@ export class CurrentWeatherComponent implements OnInit {
     public messageService: MessageService,
   ) {
   }
-
+  //Lat and Long are the Inputs that the parent (App Component) provides for the child (Current weather component)
   @Input() lat = '';
   @Input() lon = '';
+
+  //Variables
   currentWeatherResult: any;
   forecastResult: any;
   airPollutionResult: any;
   weatherIconUrl: any;
   forecastIconsUrls: any;
   listOfCities: any;
+  //List of possible responses of air pollution API with their label and value
   airQuality = [
     {label: 'Good', value: 1},
     {label: 'Fair', value: 2},
@@ -36,9 +39,6 @@ export class CurrentWeatherComponent implements OnInit {
   airQualityLabel: any;
 
   ngOnInit(): void {
-    // this.getCurrentWeather();
-    // this.getForecast();
-    // this.getAirPollution();
   }
 
   ngOnChanges() {
@@ -47,7 +47,7 @@ export class CurrentWeatherComponent implements OnInit {
     this.getAirPollution();
   }
 
-
+  //Function for getting the current weather information form service
   getCurrentWeather() {
     this.weatherService.getCurrentWeather(this.lat, this.lon).pipe(catchError((error) => {
         console.log(error.message);
@@ -65,10 +65,12 @@ export class CurrentWeatherComponent implements OnInit {
     })
   }
 
+  //Function for returning the url of weather icon
   getWeatherIcon(code: string) {
     return 'http://openweathermap.org/img/wn/' + code + '@2x.png'
   }
 
+  //Function for getting the forecast weather information form service
   getForecast() {
     this.forecastResult = [];
     this.forecastIconsUrls = []
@@ -89,6 +91,7 @@ export class CurrentWeatherComponent implements OnInit {
     })
   }
 
+  //Function for getting the air pollution information form service
   getAirPollution() {
     this.weatherService.getPollution(this.lat, this.lon).pipe().subscribe(res => {
       this.airPollutionResult = res;

@@ -7,7 +7,6 @@ import {CurrentWeatherComponent} from './current-weather/current-weather.compone
 import {HttpClientModule} from '@angular/common/http';
 import {CardModule} from "primeng/card";
 import {ToastModule} from "primeng/toast";
-import {ForecastComponent} from './forecast/forecast.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import {ScrollingModule} from "@angular/cdk/scrolling";
@@ -20,7 +19,6 @@ import {TableModule} from "primeng/table";
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
-    ForecastComponent,
   ],
   imports: [
     FormsModule,

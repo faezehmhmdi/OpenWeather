@@ -26,13 +26,14 @@ export class AppComponent {
     this.getCities()
   }
 
-
+  //Function for getting the cities from service
   getCities() {
     this.weatherService.getListOfCities().pipe().subscribe(res => {
       this.listOfCities = res;
     })
   }
 
+  //Function for getting the user's geolocation
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -55,6 +56,7 @@ export class AppComponent {
     }
   }
 
+  //Function for changing the inputs based on the city the user choose
   onCityChange(event: any) {
     this.lat = event.value.lat
     this.lon = event.value.lng

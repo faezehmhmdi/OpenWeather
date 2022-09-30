@@ -18,3 +18,9 @@
   margin-bottom: 3px;
   background-color: rgba(246, 232, 234, 0.8);
 }
+
+img {
+  border: 1px dashed #FFFFFF;
+  border-radius: 20px;
+  background-color: #dcd6f7;
+}
