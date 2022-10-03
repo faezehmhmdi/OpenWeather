@@ -1,9 +1,10 @@
 # OpenWeather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+The project is about using OpenWeather APIs to show the weather, forecast, and air quality.
 
 ## Development server
-
+Run `npm i` for installing the required node modules.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
